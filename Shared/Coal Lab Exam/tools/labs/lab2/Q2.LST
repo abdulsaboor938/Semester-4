@@ -1,0 +1,12 @@
+     1                                  ; THis program will swap upper and lower part in a number
+     2                                  [org 0x100]
+     3                                  
+     4 00000000 A1[1300]                    mov ax, word[num1] ; moving first part of number into accumulator
+     5 00000003 8B1E[1500]                  mov bx, word[num1+2] ; moving lower part into base register
+     6 00000007 891E[1300]                  mov word[num1], bx
+     7 0000000B A3[1500]                    mov word[num1+2], ax
+     8                                  
+     9 0000000E B8004C                      mov ax, 0x4c00
+    10 00000011 CD21                        int 0x21
+    11                                  
+    12 00000013 DDCCBBAA                num1:   dd  0xAABBCCDD

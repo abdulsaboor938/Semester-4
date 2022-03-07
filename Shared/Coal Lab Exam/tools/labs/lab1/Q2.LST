@@ -1,0 +1,11 @@
+     1                                  ; this is a comment. Comment starts with a semicolon
+     2                                  ; this program adds three numbers in registers
+     3                                  
+     4                                  [org 0x0100] ; we will see org directive later
+     5 00000000 B80F00                      mov ax, 15 ; a value in ax
+     6 00000003 BB0A00                      mov bx, 10 ; a value in bx
+     7 00000006 89C1                        mov cx, ax ; storing value of ax in cx
+     8 00000008 29D9                        sub cx,bx ; subtracting the value
+     9                                      
+    10 0000000A B8004C                  mov ax, 0x4c00 ;terminate the program
+    11 0000000D CD21                    int 0x21

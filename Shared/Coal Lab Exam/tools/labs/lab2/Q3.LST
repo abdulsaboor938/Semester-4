@@ -1,0 +1,17 @@
+     1                                  ; a program to add ten numbers using register + offset addressing 
+     2                                  [org 0x0100] 
+     3 00000000 BB0000                          mov bx, 0 ; initialize array index to zero 
+     4 00000003 B90300                          mov cx, 3 ; load count of numbers in cx 
+     5 00000006 B80A00                          mov ax, 10 ; initialize addition value
+     6                                  
+     7 00000009 0187[2300]              l1:     add [num1+bx], ax ; add number to element
+     8 0000000D 8B97[2300]                      mov dx, [num1+bx] ; for visualizing purpose
+     9 00000011 050A00                          add ax, 10 ; add 10 to ax
+    10 00000014 81C30200                        add bx, 2 ; advance bx to next index 
+    11 00000018 81E90100                        sub cx, 1 ; numbers to be added reduced 
+    12 0000001C 75EB                            jnz l1 ; if numbers remain add next 
+    13                                   
+    14 0000001E B8004C                  mov ax, 0x4c00 ; terminate program 
+    15 00000021 CD21                    int 0x21 
+    16                                  
+    17 00000023 0A0014001E00            num1: dw 10, 20, 30
