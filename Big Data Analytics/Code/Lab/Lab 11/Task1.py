@@ -10,5 +10,5 @@ import sys  # importing library for reading from stdin
 for line in sys.stdin:  # looping for every line from stdin
     for char in line:  # looping for every character in line
         if (char not in ['.', '!', '-']):  # checking if not punctuation
-            sys.stdout.write(char)  # printing if not char
+            sys.stdout.write(char.lower())  # printing if not char
         # no printing if punctuation

@@ -22,10 +22,10 @@ for line in sys.stdin:  # looping for every line
     else:  # if not same as previous
         if current_word:  # if not empty
             # write result to STDOUT
-            sys.stdout.write(current_day+' < '+current_word+' ' +
-                             str(current_count)+' >\n')
+            sys.stdout.write(current_day+'\t'+current_word +
+                             '\t' + str(current_count)+'\n')
         current_count = count  # resetting count
         current_day = day  # setting day
         current_word = word  # resetting tally word to current word
-sys.stdout.write(current_day+' < '+current_word+' ' +
-                             str(current_count)+' >\n')  # outputting last word
+sys.stdout.write(current_day+'\t'+current_word +
+                 '\t' + str(current_count)+'\n')  # outputting last word
